@@ -1,6 +1,6 @@
 FROM smartentry/alpine:edge-0.3.15
 
-MAINTAINER Yifan Gao <docker@yfgao.com>
+MAINTAINER Steven Yang <yangzhaofengsteven@gmail.com>
 
 COPY .docker $ASSETS_DIR
 
