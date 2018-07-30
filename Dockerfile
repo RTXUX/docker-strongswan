@@ -1,4 +1,4 @@
-FROM smartentry/alpine:3.5-0.3.13
+FROM smartentry/debian:stretch
 
 MAINTAINER Steven Yang <yangzhaofengsteven@gmail.com>
 
