@@ -1,2 +1,2 @@
 #!/bin/bash
-apt update && apt install -y strongswan libcharon-extra-plugins && apt clean
+apk add --no-cache strongswan
