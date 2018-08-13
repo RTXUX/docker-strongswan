@@ -1,4 +1,4 @@
-FROM smartentry/alpine:edge-0.3.15
+FROM smartentry/alpine:3.8
 
 MAINTAINER Steven Yang <yangzhaofengsteven@gmail.com>
 
