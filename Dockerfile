@@ -1,7 +1,9 @@
-FROM smartentry/debian:stable
+FROM debian:stable
 
 MAINTAINER Steven Yang <yangzhaofengsteven@gmail.com>
 
-COPY .docker $ASSETS_DIR
+RUN apt update && apt upgrade -y && \
+	apt install -y strongswan libstrongswan-extra-plugins libcharon-extra-plugins kmod && \
+	apt clean
 
-RUN smartentry.sh build
+CMD /usr/sbin/ipsec start --nofork
