@@ -1,4 +1,8 @@
 #!/bin/bash
 apt update && apt upgrade -y
-apt install -y strongswan libstrongswan-extra-plugins libcharon-extra-plugins kmod
+apt install -y strongswan libstrongswan-extra-plugins libcharon-extra-plugins kmod strongswan-swanctl strongswan-charon
 apt clean
+rmdir /etc/swanctl/{x509,x509ca,private}
+ln -sfT /etc/ipsec.d/private /etc/swanctl/private
+ln -sfT /etc/ipsec.d/certs /etc/swanctl/x509
+ln -sfT /etc/ipsec.d/cacerts /etc/swanctl/x509ca

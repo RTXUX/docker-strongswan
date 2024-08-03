@@ -1,3 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 
-/usr/sbin/ipsec start --nofork
+set -euo pipefail
+
+/usr/lib/ipsec/charon &
+CHARON_PID="$!"
+
+sleep 1s
+
+_term() { 
+  echo "Caught SIGTERM signal!" 
+  kill -TERM "$CHARON_PID" 2>/dev/null
+}
+
+_int() {
+  echo "Caught SIGINT signal!" 
+  kill -INT "$CHARON_PID" 2>/dev/null
+}
+
+trap _term SIGTERM
+trap _int SIGINT
+
+/usr/sbin/swanctl --load-all --noprompt
+
+wait "$CHARON_PID"

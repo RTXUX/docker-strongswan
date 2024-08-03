@@ -1,6 +1,6 @@
 FROM smartentry/debian:stable
 
-MAINTAINER Steven Yang <yangzhaofengsteven@gmail.com>
+MAINTAINER Yongfu Wang <rtxux@ustclug.org>
 
 COPY .docker $ASSETS_DIR
 
