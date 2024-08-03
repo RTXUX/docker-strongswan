@@ -24,14 +24,14 @@ jobs:
 
           : ${TAG:=latest}
           echo "::set-output name=tag::$TAG"
-          echo "::set-output name=name::yangzhaofengsteven/strongswan:$TAG"
+          echo "::set-output name=name::rtxux/strongswan:$TAG"
       - name: Build Docker image
         run: |
           IMAGE="${{ steps.image-name.outputs.name }}"
           docker pull "$IMAGE"
           docker build --cache-from "$IMAGE" -t build-image .
       - name: Push to Docker Hub
-        if: "github.repository == 'yangzhaofeng/docker-strongswan'"
+        if: "github.repository == 'rtxux/docker-strongswan'"
         run: |
           IMAGE="${{ steps.image-name.outputs.name }}"
           docker tag build-image "$IMAGE"
